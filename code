@@ -1,0 +1,14 @@
+for node in or_nodes:
+ if not node in marked:
+ cost = 0
+ cost = cost + heuristic(node) + 1
+ node_wise_cost[node] = cost
+ min_cost = 999999
+ min_cost_group = None
+ # Calculates the min heuristic
+ for costKey in node_wise_cost:
+ if node_wise_cost[costKey] < min_cost:
+ min_cost = node_wise_cost[costKey]
+ min_cost_group = costKey
+ return [min_cost, min_cost_group]
+# Returns heuristic of a node
